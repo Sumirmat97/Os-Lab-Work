@@ -1,0 +1,6 @@
+Ans 1.
+
+When we run the code on one terminal we get the same address of the variable printed the number of times the loop is executed. But the running the code on different terminals shows different addresses on different terminals.
+
+Ans2.
+
