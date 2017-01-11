@@ -4,3 +4,16 @@ When we run the code on one terminal we get the same address of the variable pri
 
 Ans2.
 
+When firefox is launched the first process changes to firefox which uses the maximum %cpu. It stays there for some time and is changed by some other process for a short amount of time and then come back to top.
+When we compile a code no noticable change was seen.
+About 12L KB of memory is free. The precise value keeps on changing every second.
+Firefox is taking the most of the cpu but that keeps on changing to other processes
+Firefox is taking the most memory about 10% but that keeps on changing to other processes. 
+
+Ans3.
+
+When strace firefox (an executing process) was executed on terminal a result showing the system call made by firefox were displayed. These include the functions like writev(),recvmsg(),poll().
+
+bash uses read and write functions to read from console and to echo on the screen.
+
+ 
