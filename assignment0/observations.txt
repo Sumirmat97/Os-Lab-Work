@@ -12,10 +12,11 @@ Firefox is taking the most memory about 10% but that keeps on changing to other 
 
 Ans3.
 
-When strace firefox (an executing process) was executed on terminal a result showing the system call made by firefox were displayed. These include the functions like writev(),recvmsg(),poll().
+When strace firefox (an executing process) was executed on terminal a result showing the system calls made by firefox were displayed. These included the functions like writev(),recvmsg(),poll().
 
 help is a command that does not make any system calls.
 
-bash uses read and write functions to read from console and to echo on the screen.
+strace bash shows some system calls that bash did.
+Then bash uses read and write functions to read from console and to echo to some stream.
 
  

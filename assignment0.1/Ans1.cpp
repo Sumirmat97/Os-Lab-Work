@@ -19,7 +19,7 @@ int main(int argc,char *argv[])
 
 	if(argc == 1)
 	{
-		cout<<endl;
+		cout<<"\n";
 		ifstream fp;
 		string s1;
 		int pos,count=0,time=0,hours=0,min=0;
@@ -61,12 +61,12 @@ int main(int argc,char *argv[])
 		}
 		else
 			cout<<"Amount of time since last boot: "<<min<<" min"<<endl;
-		
+		cout<<"\n";
 	}
 	
 	else if(argc == 3)
 	{
-				
+						
 	}
 
  return 0;
