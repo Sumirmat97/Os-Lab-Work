@@ -21,7 +21,7 @@ void execute(char *command[],int flag,int isPipe)
 	pid_t firstPid,secondPid;
 	static char *subCommand[10];
 	int i;
-	int saved_stdout = dup(STDOUT_FILENO);
+	//int saved_stdout = dup(STDOUT_FILENO);
 
 	if(command[0] == (char *)NULL)	//if empty input then return
 		return;
@@ -81,7 +81,12 @@ void execute(char *command[],int flag,int isPipe)
 		else
 		{
 			secondPid = fork();
-			
+			if(secondPid < 0)
+			{
+				printf("*** ERROR: forking child process failed\n");	//if fork() fails
+				return;
+			}
+
 			if(secondPid==0)
 			{
 				dup2(fd[0], STDIN_FILENO);
@@ -119,7 +124,7 @@ void execute(char *command[],int flag,int isPipe)
 				}
 				if(flag == 0)	//Wait only if the process is foreground 
 				{	
-					wait(NULL);
+					waitpid(secondPid,NULL,1);
 				}
 				else
 				{
@@ -269,6 +274,7 @@ int main()
 		counter = 0;	
 		input = NULL;
 		flag = 0;
+		isPipe = 0;
 	
 	}while(1);
 	

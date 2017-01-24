@@ -1,5 +1,7 @@
 This is the submission of lab 2 assignment
 
+It displays the current directory after which you can enter your command.
+
 The commands that work are gedit ls mkdir man netstat gcc top strace exit ctrl+D clear nano pwd cat ps clear
  
 The processes can be run in both foreground and background. If a process is run in background using & the pid of the child is displayed on the shell. 
