@@ -7,9 +7,12 @@ This is the submission of lab 2 assignment
 	to run without compiling:
 			1. ./Ans1 
 
+Note:
+A space is required between each command and arguments of the command else it will not work.
+
 What it does: 
 
-1. It displays the current directory after which you can enter your command. If command is correct it executes otherwise displays "commmand not found".
+1. It displays the current directory after which you can enter your command. If command is correct it executes otherwise displays "commmand not found". .
 
 2. The commands that work are gedit, ls, mkdir, man, netstat, gcc, top, strace, exit, ctrl+D, clear, nano, pwd, cat, ps, clear, etc.
  
