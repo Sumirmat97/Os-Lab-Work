@@ -12,7 +12,7 @@ A space is required between each command and arguments of the command else it wi
 
 What it does: 
 
-1. It displays the current directory after which you can enter your command. If command is correct it executes otherwise displays "commmand not found". .
+1. It displays the current directory after which you can enter your command. If command is correct it executes otherwise displays "commmand not found". 
 
 2. The commands that work are gedit, ls, mkdir, man, netstat, gcc, top, strace, exit, ctrl+D, clear, nano, pwd, cat, ps, clear, etc.
  
@@ -29,4 +29,4 @@ What it does:
 	ls | more 
 	cat Ans1.c | tail -n 10
 
-
+7. There is no abrupt stop in the program
