@@ -1,5 +1,5 @@
 Ans 3.
-	1. root owns this file.n
+	1. root owns this file.
 	2. A non root user can change his password because the suid bit is set in the permissions of the file /usr/bin/passwd that is the 4th character in the line below. 
 	-rwsr-xr-x 1 root root 47032 Jan 27  2016 /usr/bin/passwd
 	

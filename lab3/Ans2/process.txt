@@ -1,0 +1,11 @@
+Ans2.
+	a.
+	The fork.c is in kernel directory and do_fork() is in fork.c 
+	To find fork.c used find ./ -name fork.c
+	To find do_fork() used cat fork.c | grep do_fork
+
+	d.
+	It is in kernel/time/giffies.c	
+	The global variable jiffies holds the number of ticks that have occurred since the system booted.
+		
+

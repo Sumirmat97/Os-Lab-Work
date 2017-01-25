@@ -1,6 +1,5 @@
 #include<stdio.h>
 #include"myFile.h"
-#include <math.h>
 
 int main() {
    double num;
