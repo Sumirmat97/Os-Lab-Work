@@ -1,3 +1,4 @@
+# Dependencies are: main.c myFile.c
 
 CC := gcc
 CFLAGS := -fopenmp -Wall

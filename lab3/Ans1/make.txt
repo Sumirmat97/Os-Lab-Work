@@ -20,3 +20,4 @@ Ans1.
 	
 	d.	The ans of the d part is in main.c,myFile.h,myFile.c
 		myFile.h contains the declaration of the function getRoot defined in myFile.c and called in main.c 
+		To compile the code write make in terminal and run using ./a.out
