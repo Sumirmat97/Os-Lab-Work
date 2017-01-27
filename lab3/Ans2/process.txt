@@ -1,11 +1,25 @@
 Ans2.
 	a.
-	The fork.c is in kernel directory and do_fork() is in fork.c 
+	The fork.c is in kernel directory. 
 	To find fork.c used find ./ -name fork.c
+	sys_fork() function is defined in syscalls.c 
+    command used is grep -rnw '/home/Desktop/linux-4.9.5/linux-4.9.5/' -e sys_fork(
 	To find do_fork() used cat fork.c | grep do_fork
+	do_fork() function is in fork.c
+	command used is grep -rnw '/home/Desktop/linux-4.9.5/linux-4.9.5/' -e do_fork(.
+	
+    b.
+    task struct is defined in sched.h
+    command used to find is "grep -rnw '/home/Desktop/linux-4.9.5/linux-4.9.5/' -e 'task_struct {'".
+    task struct :- Task struct is used to initialize the process descriptors. These have the information about the 
+					process id, address space which is allocated to the process and other information about processes.
 
+    c. 
+    to find all the make files command used is
+	find  ./  -name "Makefile"	
+	
 	d.
 	It is in kernel/time/giffies.c	
-	The global variable jiffies holds the number of ticks that have occurred since the system booted.
-		
+    The global variable jiffies holds the number of ticks that have occurred since the system booted. Initially onn boot its value is zero and is incremented by one on each timer interrupt.
+    We can calculate the uptime of pc as jiffies/Hz.
 
