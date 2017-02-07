@@ -5,8 +5,8 @@ How was this done:
 2. made a folder inside the extracted folder by the name of hello.
 3. inside the hello folder made a hello.c and made the system call function by the name mySysCall(void) (present in the folder uploded by the name lab4).
 4. also made the Makefile to compile hello.c (present in the folder uploded by the name lab4).
-5. changed the file Makefile in the present linux-4.9.8/ replaced the line core-y += kernel/ mm/ fs/ ipc/ security/ crypto/ block/ to core-y += kernel/ mm/ fs/ ipc/ security/ crypto/ block/ hello
-6. in file syscalls.h (present in linux-4.9.8/include/linux/) added the declaration of the newly created system call (asmlinkage long sys_hello(void);).
+5. changed the file Makefile present in linux-4.9.8/ replaced the line core-y += kernel/ mm/ fs/ ipc/ security/ crypto/ block/ to core-y += kernel/ mm/ fs/ ipc/ security/ crypto/ block/ hello
+6. in file syscalls.h (present in linux-4.9.8/include/linux/) added the declaration of the newly created system call (asmlinkage long mySysCall(void);).
 7. in the file linux-4.9.8/arch/x86/entry/syscalls/syscall_64.tbl added 548    common    hello    mySysCall
 8. commands run to compile and install:
 	sudo make menuconfig
