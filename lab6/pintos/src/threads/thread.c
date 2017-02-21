@@ -15,6 +15,7 @@
 #include "userprog/process.h"
 #endif
 
+
 /* Random value for struct thread's `magic' member.
    Used to detect stack overflow.  See the big comment at the top
    of thread.h for details. */
@@ -49,9 +50,9 @@ struct kernel_thread_frame
 static long long idle_ticks;    /* # of timer ticks spent idle. */
 static long long kernel_ticks;  /* # of timer ticks in kernel threads. */
 static long long user_ticks;    /* # of timer ticks in user programs. */
-
+long long contextSwitchesCounter; /* no of context switches done */ 
 /* Scheduling. */
-#define TIME_SLICE 50            /* # of timer ticks to give each thread. */
+#define TIME_SLICE 50          /* # of timer ticks to give each thread. */
 static unsigned thread_ticks;   /* # of timer ticks since last yield. */
 
 /* If false (default), use round-robin scheduler.
@@ -143,8 +144,8 @@ thread_tick (void)
 void
 thread_print_stats (void) 
 {
-  printf ("Thread: %lld idle ticks, %lld kernel ticks, %lld user ticks\n",
-          idle_ticks, kernel_ticks, user_ticks);
+  printf ("Thread: %lld idle ticks, %lld kernel ticks, %lld user ticks %lld iterations\n",
+          idle_ticks, kernel_ticks, user_ticks,contextSwitchesCounter);
 }
 
 /* Creates a new kernel thread named NAME with the given initial
@@ -564,7 +565,10 @@ schedule (void)
   ASSERT (is_thread (next));
 
   if (cur != next)
+  {
+	contextSwitchesCounter++;
     prev = switch_threads (cur, next);
+  }
   thread_schedule_tail (prev);
 }
 

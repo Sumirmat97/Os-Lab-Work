@@ -27,6 +27,7 @@ static bool smaller(const struct list_elem *one, const struct list_elem *two,voi
 void test_display(void *aux UNUSED)
 {
 	
+	int i,j;
 	struct thread *currentThread = thread_current();
 	struct list_elem *e=NULL;
 	struct number *f=NULL; 
@@ -38,57 +39,67 @@ void test_display(void *aux UNUSED)
 	{
 		f = list_entry (e, struct number, elem);
 		printf("%d\n",f->data);		
-	}	
-	
+	}		
+
 }
 
 void test_sort(void *aux UNUSED)
 {
+
+	int i,j;
 	struct thread *currentThread = thread_current();
 	printf("Id of the second thread: %d\n",currentThread->tid);
 	
 	list_sort(&number_list,smaller,NULL);
-	
-	//create third thread that displays the sorted list
-	thread_create("displayList",PRI_DEFAULT,test_display,&number_list);
-	
+
+		
 }
 
 void test_generate(void *aux UNUSED)
 {
-	
+	int i,j;
 	struct thread *currentThread = thread_current();
 
 	printf("Name of the first thread: %s\n",currentThread->name);
 
 	list_init(&number_list);
-
-	int i;
-		
+	
 	num = (struct number*)malloc(sizeof(struct number));
 	
 	//initialise the list using random numbers
 	for(i=0;i<10;i++)
 	{
 		random_bytes(&num[i].data,sizeof(int));	//generate random values
-		num[i].data /= 10000029;				//reducing the value of data in num 
+		num[i].data /= 10000029;		//reducing the value of data in num 
 		list_push_back(&number_list,&num[i].elem);//push back the element in the list
 	}
 
-	//creates second trhead that sorts the list
-	thread_create("sortThread",PRI_DEFAULT,test_sort,&number_list);	
-	
+		
 }
 
 void test_hello(void)
 {
-	printf("\nHello World.\n");
+	int i,j;
 	
+	printf("\nHello World.\n");
+	contextSwitchesCounter=0;
 	//creates thread to genrate random numbers and sort them in list
 	thread_create("generateNo",PRI_DEFAULT,test_generate,NULL);
+	//creates second thread that sorts the list
+	thread_create("sortThread",PRI_DEFAULT,test_sort,&number_list);
+	//create third thread that displays the sorted list
+	thread_create("displayList",PRI_DEFAULT,test_display,&number_list);
+		
+	thread_yield();
 	
-	thread_yield();
-	thread_yield();
-	thread_yield();
+		
+	for(i=0;i<100000;i++)
+		for(j=0;j<5000;j++)
+			{};
+
+
+	thread_print_stats();
+	
+	
 }
 
