@@ -28,8 +28,10 @@ FOR PART 2.1
 4)By this we can calculate the number of iterations of a thread (total context switches by total number of threads).
 5)The value of TIME_SLICE was changed to get different values for no. of iterations.
 5)Graph was plotted as follows.
+Note to get good values of itrations for loops were used in threads.
 
-FOR PART 2.2
+
+
 
 
 How to run:
