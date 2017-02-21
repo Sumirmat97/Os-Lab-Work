@@ -27,12 +27,13 @@ FOR PART 2.1
 3)In thread_print_stats displayed this value of contextSwitches.
 4)By this we can calculate the number of iterations of a thread (total context switches by total number of threads).
 5)The value of TIME_SLICE was changed to get different values for no. of iterations.
-5)Graph was plotted as follows.
+5)Graph was plotted as shown in lab6Graph1.png
 Note to get good values of itrations for loops were used in threads.
 
 
-
-
+Round Robin scheduler is implemented by using TIME_SLICE value and schedule() function which is called when either the quantum given to each thread is exhausted or the thread finishes its execution before the quantum.
+In pintos, ready list is initialised and has processes as its elements. All new threads are pushed into the list, the first elements is executed and then pushed back in to the list (in the end). This is done 
+by the schedule function (also by thread_yield() function). So by increasing the TIME_SLICE value we can make the round robin into FCFS. 
 
 How to run:
 1) On terminal write: pintos run hello
