@@ -83,7 +83,7 @@ int main()
 	}
 	
 	printf("\n\nEnter the sequence you want to test(indexing begins from 1): ");
-	for(i=0;i<5;i++)
+	for(i = 0; i<5;i++)
 	{
 		printf("\nEnter the %dth process: ",i+1);
 		scanf(" %d",&seq[i]);
@@ -91,7 +91,9 @@ int main()
 	}	
 	for(i=0;i<5;i++)
 	{
-		if((need[seq[i]][0] <= Available[0]) && (need[seq[i]][1] <= Available[1]) && (need[seq[i]][2] <= Available[2]))  
+		if((need[seq[i]][0] <= Available[0]) && 
+		(need[seq[i]][1] <= Available[1]) && 
+		(need[seq[i]][2] <= Available[2]))  
 		{
 			Available[0] +=  Allocated[i][0];
 			Available[1] +=  Allocated[i][1];
