@@ -167,7 +167,7 @@ Ans 1.
 		decreasing the break deallocates memory.	
 		brk() sets the end of the data segment to the value specified by addr, when the system has enough memory, and the process does not exceed its maximum data size.
 		
-		The header file for alloca() is "unistd.h"
+		The header file for brk() is "unistd.h"
 		
 	H.mmap()
 	
@@ -183,7 +183,7 @@ Ans 1.
 		If addr is not NULL, on Linux, the mapping will be created at a nearby page boundary.
 		The address of the new mapping is returned as the result of the call.
 		
-		The header file for alloca() is "sys/mman.h"
+		The header file for mmap() is "sys/mman.h"
 	
 	J.munmap()
 
@@ -196,7 +196,7 @@ Ans 1.
 		range to generate invalid memory references.  The region is also automatically unmapped when the process is terminated.  On the other hand,
 		closing the file descriptor does not unmap the region.
 			
-		The header file for alloca() is "sys/mman.h"
+		The header file for munmapp() is "sys/mman.h"
 	
 	
 	Precaution to avoid memory corruption:
