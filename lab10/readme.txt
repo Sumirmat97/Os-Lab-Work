@@ -13,10 +13,12 @@ What was done to configure the system for implementing syscalls:
 How were the system calls implemented:
     1. In syscall.c we need to implement a function named - ‘syscall_handler’ to handle all the
 system calls in the kernel space. 
-    2. When a user program need to execute a system call then it registers an interrupt and that interrupt is handled by calling this syscall_handler function. 
-	3.This function takes an argument ‘struct intr_frame * f’ which has a integer pointer ‘esp’ that indicates the top of stack which we use to identify system call called in the user space as for each system call the top of the stack is always the system call number and now we can execute the corresponding system call in the kernel space.
+    2. When a user program need to execute a system call then it registers an interrupt and that interrupt is handled by calling this syscall_handler function.
+    3.This function takes an argument ‘struct intr_frame * f’ which has a integer pointer ‘esp’ that indicates the top of stack which we use to identify system call called 
+    in the user space as for each system call the top of the stack is always the system call number and now we can execute the corresponding system call in the kernel space.
     4. Now we have to check which system call was called.
-    5. This was done by putting the value of pointer p(which holds the value to the top of the stack i.e the system call number) in switch case and checking it against the enums given in syscall-nr.h
+    5. This was done by putting the value of pointer p(which holds the value to the top of the stack i.e the system call number) in switch case and checking it against the enums
+    given in syscall-nr.h
     6. For example if the value is SYS_HALT, it  means that halt system call is called.
     7. A function named halt is called which is defined in the same file i.e. syscall.c
     8. This function then calls shutdown_power_off function defined in src/devices folder which
