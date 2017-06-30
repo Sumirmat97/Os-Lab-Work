@@ -1,0 +1,23 @@
+Ans1.
+
+	a.	To resolve dependancies use gcc's various -M flags to generate the dependencies and then -include them in Makefile.
+	b.	Since we cannot write the name of files in the recipe of the make file we use these symbols which are known as automatic variables.
+		'$<' used to represent the source file name. 
+		'$@' used to represent the object file name 
+		'$^' used to represent the names of all the prerequisites, with spaces between them.
+		
+	c.	To build a code when there are multiple makefiles in the system: 
+		i) give different names to the makefiles eg. makefile.win and makefile.nix.
+		ii) In another makefile file write the lines
+			win:
+			  make -f makefile.win
+
+			nix:
+			  make -f makefile.nix
+			 
+			and use make win or make nix to use any of the required makefiles.
+			
+	
+	d.	The ans of the d part is in main.c,myFile.h,myFile.c
+		myFile.h contains the declaration of the function getRoot defined in myFile.c and called in main.c 
+		To compile the code write make in terminal and run using ./a.out

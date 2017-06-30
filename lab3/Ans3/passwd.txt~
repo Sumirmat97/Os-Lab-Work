@@ -1,0 +1,11 @@
+Ans 3.
+	1. root owns this file.n
+	2. A non root user can change his password because the suid bit is set in the permissions of the file /usr/bin/passwd that is the 4th character in the line below. 
+	-rwsr-xr-x 1 root root 47032 Jan 27  2016 /usr/bin/passwd
+	
+	RUID is the Real User ID and it almost never changes. If user (eg. mnit) logs into the system the RUID is mnit. 
+	EUID is the Effective User ID, it changes for processes that have set the setuid bit that the user executes, not for the user. 
+	When a non-root user wants to change his password, he executes /usr/bin/passwd. 
+	The RUID will be user id (say mnit) but the EUID of that process will be root. 
+	Non-root user can use passwd to change only his own password because internally passwd checks the RUID and if it is not root, its actions will be limited to real user's password. 
+	

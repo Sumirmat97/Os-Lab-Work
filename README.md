@@ -1,0 +1,1 @@
+The assignments of os lab excluding the first assignment which is outside by the name of lab1
